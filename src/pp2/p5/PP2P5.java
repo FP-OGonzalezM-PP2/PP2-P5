@@ -33,16 +33,20 @@ public class PP2P5 {
     }
     public static double calculo(int n){
         int i,p = 0;
+        //busco un numero que el residuo de la division de el numero en el valor i seas solo con 1 y con el mismo numero
         for(i=1; i<n+1; i++){
             if(n%i==0){
+                //solo si el residuo es 0 a p se le sumara 1
                 p++;
             }
         }
         return p;
     }
     public static boolean determinar (double p){
+        //en r guardare un valor booleano para analizarlo despues
         boolean r;
         if(p!=2){
+            //usa la p del metodo anterior para analizarla
             r=true;
         }else{
             r=false;
@@ -51,6 +55,7 @@ public class PP2P5 {
     }
     public static void mostrar(boolean r, double n){
         if(r=false){
+            //si p es diferente de 2 el numero no es primo
             System.out.println("El número " +n +" si es primo");
         }if(r=true){
             System.out.println("El número " +n +" no es primo");
