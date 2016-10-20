@@ -15,14 +15,12 @@ public class PP2P5 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        int n;
-        double p;
-        boolean r;
+        int n,p;
         n = pedirNumero(); 
         p = calculo(n);
-        r = determinar(p);
-        mostrar(r,n);
+        //En el calculo solo utiliza a n para analizarla y regresa p 
+        determinar(n,p);
+        //Usa p para analizarlo y emitir un mensaje
      }
     public static int pedirNumero (){
         int n;
@@ -31,36 +29,28 @@ public class PP2P5 {
         n = entrada.nextInt();
         return n;
     }
-    public static double calculo(int n){
+    public static int calculo(int n){
         int i,p = 0;
         //busco un numero que el residuo de la division de el numero en el valor i seas solo con 1 y con el mismo numero
-        for(i=1; i<n+1; i++){
+        for(i=1; i<=n; i++){
             if(n%i==0){
                 //solo si el residuo es 0 a p se le sumara 1
                 p++;
             }
         }
         return p;
+        //Si el número primo p siempre se regresara valiendo 2
     }
-    public static boolean determinar (double p){
-        //en r guardare un valor booleano para analizarlo despues
-        boolean r;
-        if(p!=2){
+    public static void determinar (int n, int p){
+        if(p==2){
             //usa la p del metodo anterior para analizarla
-            r=true;
+            System.out.println("El número  " +n  +"  es primo");
         }else{
-            r=false;
-        }
-        return r;
-    }
-    public static void mostrar(boolean r, double n){
-        if(r=false){
-            //si p es diferente de 2 el numero no es primo
-            System.out.println("El número " +n +" si es primo");
-        }if(r=true){
-            System.out.println("El número " +n +" no es primo");
+            //Si p no es igual a 2 significa que el numero no es primo
+            System.out.println("El número  " +n  +"  no es primo");
         }
     }
+    
 }
     
     
